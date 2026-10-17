@@ -1,0 +1,91 @@
+/* Avatar component styling */
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.avatar-frame {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.2);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Glow effect when speaking */
+.avatar-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,200,0,0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.avatar-glow.speaking {
+  opacity: 1;
+  animation: pulseGlow 1.5s infinite;
+}
+@keyframes pulseGlow {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+/* Simple mouth animation */
+.mouth {
+  position: absolute;
+  bottom: 10%;
+  left: 25%;
+  width: 50%;
+  height: 10%;
+  background: #fff;
+  border-radius: 50% / 100%;
+  transform: scaleY(0.3);
+  transition: transform 0.1s linear;
+}
+.mouth.speaking {
+  animation: mouthMove 0.2s infinite alternate;
+}
+@keyframes mouthMove {
+  from { transform: scaleY(0.3); }
+  to { transform: scaleY(0.8); }
+}
+
+.avatar-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 200px;
+}
+.play-pause-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #fff;
+  padding: 0.2rem;
+}
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-filled {
+  height: 100%;
+  background: #ffb400;
+  width: 0%;
+}

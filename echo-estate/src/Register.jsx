@@ -1,0 +1,5 @@
+import { ArrowRight, HeartHandshake } from 'lucide-react';
+import { Link, Navigate } from 'react-router-dom';
+import { useAuth } from './services/auth.jsx';
+function Register() { const { isAuthenticated, signUp } = useAuth(); if (isAuthenticated) return <Navigate to="/dashboard" replace />; return <main className="page-shell grid min-h-screen place-items-center px-5"><section className="surface w-full max-w-md rounded-lg p-8"><Link to="/" className="text-sm font-semibold tracking-[0.12em] text-white">ECHO ESTATE</Link><HeartHandshake className="mt-10 text-gold" size={30} /><p className="eyebrow mt-5">Start your legacy</p><h1 className="mt-2 font-serif text-4xl text-white">Make space for what matters.</h1><p className="mt-4 leading-7 text-stone-400">Account creation and verification are securely managed by Amazon Cognito.</p><button onClick={signUp} className="gold-button mt-8 w-full">Create account securely <ArrowRight size={17} /></button><p className="mt-6 text-center text-sm text-stone-400">Already have an account? <Link to="/login" className="text-gold hover:underline">Log in</Link></p></section></main>; }
+export default Register;
