@@ -8,7 +8,7 @@ const COGNITO_DOMAIN =
 
 const CLIENT_ID = "47jk6342rqcsomhfd02ugv56bt";
 
-const REDIRECT_URI = "http://localhost:5173/";
+const REDIRECT_URI = "https://main.d1rcz4wtnwr716.amplifyapp.com/";
 
 
 // ===============================
